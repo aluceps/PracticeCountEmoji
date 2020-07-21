@@ -4,6 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="me.aluceps.practicetextview.MainViewModel"
+            />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,6 +66,7 @@
                 android:id="@+id/custom_input"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.inputData}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/custom_title"
@@ -68,7 +77,8 @@
                 style="@style/TextAppearance.MaterialComponents.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{viewModel.inputDataCount}"
                 app:layout_constraintEnd_toEndOf="@id/custom_input"
                 app:layout_constraintTop_toBottomOf="@id/custom_input"
                 tools:text="0"
