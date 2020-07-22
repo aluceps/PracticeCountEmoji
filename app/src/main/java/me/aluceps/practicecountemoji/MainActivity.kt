@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import me.aluceps.practicecountemoji.databinding.ActivityMainBinding
+import java.text.BreakIterator
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,4 +45,23 @@ class MainActivity : AppCompatActivity() {
 class MainViewModel : ViewModel() {
     val inputData = MutableLiveData<String>()
     val inputDataCount = MutableLiveData<String>()
+}
+
+@BindingAdapter("grapheme_length")
+fun TextView.getGraphemeLength(text: String?) {
+    if (text == null) {
+        0
+    } else {
+        val instance = BreakIterator.getCharacterInstance()
+        instance.setText(text)
+        instance.first()
+        var counter = 0
+        while (instance.next() != BreakIterator.DONE) {
+            counter++
+        }
+        counter
+    }.let {
+        Log.d("### Grapheme", "count=$it")
+        this.text = "%d".format(it)
+    }
 }
