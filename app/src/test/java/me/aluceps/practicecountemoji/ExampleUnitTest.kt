@@ -1,4 +1,4 @@
-package me.aluceps.practicetextview
+package me.aluceps.practicecountemoji
 
 import org.junit.Test
 

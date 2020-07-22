@@ -1,14 +1,15 @@
-package me.aluceps.practicetextview
+package me.aluceps.practicecountemoji
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import me.aluceps.practicetextview.databinding.ActivityMainBinding
+import me.aluceps.practicecountemoji.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
